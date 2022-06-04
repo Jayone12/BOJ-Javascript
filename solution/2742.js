@@ -1,23 +1,10 @@
-// 런타임 오류로 인해 readline 모듈 사용
-const readline = require('readline');
+let fs = require('fs');
+let input = fs.readFileSync('/dev/stdin').toString().trim();
 
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-});
+let result =""
 
-let input = [];
+for(let i = input; i > 0; i--){
+  result += i + "\n"
+}
 
-rl.on('line', function (line) {
-  input.push(line)
-})
-  .on('close', function () {
-  let result =""
-
-  for(let i = input; i > 0; i--){
-    result += i + "\n"
-  }
-
-  console.log(result)
-  process.exit();
-});
+console.log(result)
